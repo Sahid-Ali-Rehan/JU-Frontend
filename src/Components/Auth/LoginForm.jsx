@@ -22,6 +22,9 @@ const LoginForm = () => {
 
       // Save token to localStorage
       localStorage.setItem("token", data.token);
+      // After successful login
+      localStorage.setItem('userId', data._id); // where `user.id` is the logged-in user's ID
+
 
       // Redirect based on user role
       if (data.role === "admin") {

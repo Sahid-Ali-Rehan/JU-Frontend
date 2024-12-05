@@ -127,7 +127,7 @@ const Footer = () => {
 
       {/* Footer Bottom Section */}
       <div className="bg-[#a0926c] py-6 text-center mt-16">
-        <p className="text-lg text-[#760000]">
+        <p className="text-lg text-[#fff]">
           &copy; 2024 Ruhanas. All Rights Reserved.
         </p>
       </div>

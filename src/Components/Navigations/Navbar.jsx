@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { HiMenu } from "react-icons/hi"; // For menu
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,8 +8,8 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"; // Cart Icon
 // Dropdown Items as JSON
 const categories = {
     mens: [
-      { name: "Panjabi", link: "/category/panjabi" },
-      { name: "Pajama", link: "/category/pajama" },
+      { name: "kimono", link: "/category/panjabi" },
+      { name: "Action", link: "/category/pajama" },
       { name: "T-Shirts", link: "/category/shirts" },
       { name: "Pants", link: "/category/pants" },
     ],
@@ -38,6 +38,7 @@ const categories = {
   
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMensDropdownOpen, setIsMensDropdownOpen] = useState(false);
   const [isWomensDropdownOpen, setIsWomensDropdownOpen] = useState(false);
@@ -46,6 +47,7 @@ const Navbar = () => {
   const [isFootwearDropdownOpen, setIsFootwearDropdownOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   // Fetch the logged-in user data and check if the token exists in localStorage
   useEffect(() => {
@@ -85,6 +87,12 @@ const Navbar = () => {
     fetchUser();
   }, []);
 
+
+  const handleClick = () => {
+    navigate('/products');
+  };
+
+
   return (
     <nav className="p-3 backdrop-blur-md bg-white/30 shadow-lg z-50 sticky top-0">
 
@@ -111,13 +119,14 @@ const Navbar = () => {
 >
 
               {categories.mens.map((item) => (
-                <Link
-                  to={item.link}
-                  key={item.name}
-                  className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
-                >
-                  {item.name}
-                </Link>
+               <Link
+               to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
+               key={item.name}
+               className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
+             >
+               {item.name}
+             </Link>
+             
               ))}
             </div>
           </div>
@@ -135,13 +144,14 @@ const Navbar = () => {
               className={`absolute left-0 mt-2 space-y-2 bg-white shadow-lg w-48 border  transition-all duration-500 ease-in-out ${isWomensDropdownOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
             >
               {categories.womens.map((item) => (
-                <Link
-                  to={item.link}
+                  <Link
+                  to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
                   key={item.name}
                   className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
                 >
                   {item.name}
                 </Link>
+                
               ))}
             </div>
           </div>
@@ -159,13 +169,14 @@ const Navbar = () => {
               className={`absolute left-0 mt-2 space-y-2 bg-white shadow-lg w-48 border  transition-all duration-500 ease-in-out ${isKidsDropdownOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
             >
               {categories.kids.map((item) => (
-                <Link
-                  to={item.link}
+                  <Link
+                  to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
                   key={item.name}
                   className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
                 >
                   {item.name}
                 </Link>
+                
               ))}
             </div>
           </div>
@@ -184,13 +195,14 @@ const Navbar = () => {
               className={`absolute left-0 mt-2 space-y-2 bg-white shadow-lg w-48 border  transition-all duration-500 ease-in-out ${isAccessoriesDropdownOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
             >
               {categories.accessories.map((item) => (
-                <Link
-                  to={item.link}
+                  <Link
+                  to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
                   key={item.name}
                   className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
                 >
                   {item.name}
                 </Link>
+                
               ))}
             </div>
           </div>
@@ -208,18 +220,19 @@ const Navbar = () => {
               className={`absolute left-0 mt-2 space-y-2 bg-white shadow-lg w-48 border  transition-all duration-500 ease-in-out ${isFootwearDropdownOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
             >
               {categories.footwear.map((item) => (
-                <Link
-                  to={item.link}
+                  <Link
+                  to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
                   key={item.name}
                   className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
                 >
                   {item.name}
                 </Link>
+                
               ))}
             </div>
           </div>
 
-          <button className="text-[#8d5c51] hover:text-[#a0926c] transition duration-200 text-md font-semibold">
+          <button onClick={handleClick} className="text-[#8d5c51] hover:text-[#a0926c] transition duration-200 text-md font-semibold">
               All Products
             </button>
 
@@ -267,6 +280,8 @@ const Navbar = () => {
               </Link>
             </div>
           )}
+
+          
         </div>
       </div>
 
@@ -284,13 +299,14 @@ const Navbar = () => {
       {isMensDropdownOpen && (
         <div className="space-y-2">
           {categories.mens.map((item) => (
-            <Link
-              to={item.link}
+              <Link
+              to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
               key={item.name}
               className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
             >
               {item.name}
             </Link>
+            
           ))}
         </div>
       )}
@@ -307,13 +323,14 @@ const Navbar = () => {
       {isWomensDropdownOpen && (
         <div className="space-y-2">
           {categories.womens.map((item) => (
-            <Link
-              to={item.link}
+              <Link
+              to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
               key={item.name}
               className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
             >
               {item.name}
             </Link>
+            
           ))}
         </div>
       )}
@@ -330,13 +347,14 @@ const Navbar = () => {
       {isKidsDropdownOpen && (
         <div className="space-y-2">
           {categories.kids.map((item) => (
-            <Link
-              to={item.link}
+              <Link
+              to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
               key={item.name}
               className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
             >
               {item.name}
             </Link>
+            
           ))}
         </div>
       )}
@@ -353,13 +371,14 @@ const Navbar = () => {
       {isAccessoriesDropdownOpen && (
         <div className="space-y-2">
           {categories.accessories.map((item) => (
-            <Link
-              to={item.link}
-              key={item.name}
-              className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
-            >
-              {item.name}
-            </Link>
+             <Link
+             to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
+             key={item.name}
+             className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
+           >
+             {item.name}
+           </Link>
+           
           ))}
         </div>
       )}
@@ -376,13 +395,14 @@ const Navbar = () => {
       {isFootwearDropdownOpen && (
         <div className="space-y-2">
           {categories.footwear.map((item) => (
-            <Link
-              to={item.link}
+              <Link
+              to={`/products?category=mens&subcategory=${item.name.toLowerCase()}`}
               key={item.name}
               className="block px-5 py-3 text-[#8d5c51] hover:bg-[#a0926c] hover:text-white border-b hover:border-[#a0926c] transition duration-200"
             >
               {item.name}
             </Link>
+            
           ))}
         </div>
       )}

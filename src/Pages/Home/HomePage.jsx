@@ -1,4 +1,5 @@
 import AllCategories from "../../Components/AllCategories/AllCategories";
+import BestSeller from "../../Components/BestSelling/BestSeller";
 import HomeBanner from "../../Components/Crousels/HomeBanner";
 import FeaturedProduct from "../../Components/FeaturedProduct/FeaturedProduct";
 import Footer from "../../Components/Footer/Footer";
@@ -11,6 +12,7 @@ const HomePage = () => {
         <HomeBanner/>
         <AllCategories/>
         <FeaturedProduct/>
+        <BestSeller/>
         <Footer/>
       </div>
     );
