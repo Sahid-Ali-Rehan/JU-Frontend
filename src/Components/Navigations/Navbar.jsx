@@ -407,6 +407,10 @@ const Navbar = () => {
         </div>
       )}
     </div>
+
+    <button onClick={handleClick} className="text-[#8d5c51] hover:text-[#a0926c] transition duration-200 text-md font-semibold">
+              All Products
+            </button>
   </div>
 )}
 

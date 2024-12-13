@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "cd frontend && npm install && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.8",
+    "backend": "file:..",
     "chart.js": "^4.4.6",
     "dotenv": "^16.4.5",
     "html2canvas": "^1.4.1",

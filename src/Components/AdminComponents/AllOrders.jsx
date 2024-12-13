@@ -18,7 +18,7 @@ const AllOrders = () => {
             return;
           }
       
-          const response = await axios.get('http://localhost:5000/api/users/user-orders', {
+          const response = await axios.get('http://localhost:5000/api/orders/all-orders', {
             headers: {
               Authorization: `Bearer ${token}`,
             },

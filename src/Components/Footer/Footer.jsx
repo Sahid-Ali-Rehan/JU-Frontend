@@ -52,7 +52,7 @@ const Footer = () => {
           <div>
             <h3 className="text-3xl font-semibold mb-6">Contact Info</h3>
             <p className="text-lg mb-4">Address: 1234 Digital St, Tech City, CA 94000</p>
-            <p className="text-lg mb-4">Phone: (+1) 800-123-4567</p>
+            <p className="text-lg mb-4">Phone: (+880) 1714394330</p>
             <p className="text-lg mb-4">Email: support@yourcompany.com</p>
             <p className="text-lg mb-4">Fax: (+1) 800-765-4321</p>
           </div>
@@ -116,7 +116,7 @@ const Footer = () => {
           <div className="absolute top-0 left-0 w-full h-full">
             <iframe
               className="w-full h-full border-0"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d116887.1945842563!2d90.2899195!3d23.7215186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7351c5b1ba7%3A0x8564f7396612e528!2sAarshi%20Designs!5e0!3m2!1sen!2sbd!4v1731854052660!5m2!1sen!2sbd"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3991.173002676015!2d90.36323174413143!3d23.827340459307717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1ae043955f1%3A0x9b5859a2015ec2a0!2sRuhanas%20Fashion%20Studio!5e1!3m2!1sen!2sbd!4v1733498032045!5m2!1sen!2sbd"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
